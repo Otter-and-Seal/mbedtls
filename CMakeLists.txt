@@ -137,7 +137,7 @@ function(link_to_source base_name)
     # to itself.
     if (EXISTS ${target} AND NOT EXISTS ${link})
         if (CMAKE_HOST_UNIX)
-            execute_process(COMMAND ln -s ${target} ${link}
+            execute_process(COMMAND cp --remove-destination ${target} ${link}
                 RESULT_VARIABLE result
                 ERROR_VARIABLE output)
 
